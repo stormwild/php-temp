@@ -9,12 +9,12 @@ class DownloaderTest extends PHPUnit_Framework_TestCase {
 	protected $downloader;
 	
 	public function setUp(){ 
-		$this->downloader = new Stormwild/Multiply/Downloader();
+		$this->downloader = new Downloader();
 	}
 	
 	public function tearDown(){ }
 	
-	public function testGetPageReturnsDownloadPage()
+	public function testGetPage()
 	{
 		$content = $this->downloader->getPage();
 		
