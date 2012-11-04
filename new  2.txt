@@ -1,5 +1,0 @@
-/]+href\=(["'`])(http[^>]+(?:cdtrealestate\.multiply\.com)[^>]+\.(?:jpg|jpeg|gif|png|tif))\1[^<]*?]*src\=(["'`])(http[^>]+(?:cdtrealestate\.multiply\.com)[^>]+\.(?:jpg|jpeg|gif|png|tif))\3[^>]*>/i
-
-
-
-/]+href\=(["'`])(http[^>]+(?:cdtrealestate\.multiply\.com)[^>]+\.(?:jpg|jpeg|gif|png|tif))\1[^<]*?]*src\=(["'`])(http[^>]+(?:cdtrealestate\.multiply\.com)[^>]+\.(?:jpg|jpeg|gif|png|tif))\3[^>]*>/i
