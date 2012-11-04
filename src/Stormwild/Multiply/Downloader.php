@@ -59,9 +59,44 @@ class Downloader {
 	/**
 	 * Before we can download the files we need to fix the url passed to curl.
 	 * There are two kinds of url:
+	 * 
 	 * '//multiply.com/mu/cdtrealestate/image/dpUPQaux4VpuBfs0osqmVw/photos/62/orig/1/A.VENUE-RESIDENCES-PENTHOUSE-28-B.JPG?et=h8l89aAisIdjy0PXR%2CiIZA&nmid=0&name=/541-A.VENUE RESIDENCES PENTHOUSE 28-B.JPG'
 	 * 'http://images.cdtrealestate.multiply.com/content/movie/cdtrealestate:video:2/cdtrealestate/2.avi/6L,oC,xvgmSRj4dzPtgJ0w/Antel%20Group%20Presentation.avi?nmid=&name=/32-Antel Group Presentation.avi'
 	 * 
+	 * The above urls fail to load.
+	 * 
+	 * This one works because it has an http: and the name value is url encoded 
+	 * http://multiply.com/mu/cdtrealestate/image/dpUPQaux4VpuBfs0osqmVw/photos/62/orig/1/A.VENUE-RESIDENCES-PENTHOUSE-28-B.JPG?et=h8l89aAisIdjy0PXR%2CiIZA&nmid=0&name=/541-A.VENUE%20RESIDENCES%20PENTHOUSE%2028-B.JPG
+ 	 * http://multiply.com/mu/cdtrealestate/image/dpUPQaux4VpuBfs0osqmVw/photos/62/orig/1/A.VENUE-RESIDENCES-PENTHOUSE-28-B.JPG?et=h8l89aAisIdjy0PXR%2CiIZA&nmid=0&name=/541-A.VENUE%20RESIDENCES%20PENTHOUSE%2028-B.JPG
+	 * 
+	 * We need a function to fix the urls in the matched urls prior to download.
+	 * 
+	 * 
 	 */
+	
+	/**
+	 * Fixes url by prepending http: and url encoding name
+	 * @param string $url
+	 * @return string $url
+	 */
+	public function fixUrl($url) 
+	{
+		// Add http: if none found
+		if(strpos($url, 'http:') === false) {
+			$url = 'http:' . $url;
+		}
+		
+		// Get the name value in the url 
+		$pos = strpos($url, '&name=/');
+		
+		$name = substr($url, $pos + 7);
+		
+		$fixed = rawurlencode($name);
+		
+		$url = substr_replace($url, $fixed, $pos + 7);
+		
+		return $url;	
+	}
+	
 	
 } 
