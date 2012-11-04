@@ -38,7 +38,7 @@ class Downloader {
 	}
 	
 	public function getPage(){		
-		return curl($this->url, $this->cookie);
+		return $this->curl($this->url, $this->cookie);
 	}
 	
 	
