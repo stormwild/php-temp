@@ -47,5 +47,12 @@ class Downloader {
 		return $this->curl($this->url, $this->cookie);
 	}
 	
-	
+	/**
+	 * Returns matches to the pattern
+	 * @return array
+	 */
+	public function getMatches(){		
+		preg_match_all($this->pattern, $this->getPage(), $matches);
+		return $matches;
+	}
 } 

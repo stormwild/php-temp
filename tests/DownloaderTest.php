@@ -8,7 +8,8 @@ class DownloaderTest extends PHPUnit_Framework_TestCase {
 
 	protected $downloader;
 	
-	public function setUp(){ 
+	public function setUp() 
+	{ 
 		$this->downloader = new Downloader();
 	}
 	
@@ -16,8 +17,13 @@ class DownloaderTest extends PHPUnit_Framework_TestCase {
 	
 	public function testGetPage()
 	{
-		$content = $this->downloader->getPage();
-		
+		$content = $this->downloader->getPage();		
 		$this->assertTrue(strpos($content, 'Multiply Media Download') !== false);
+	}
+	
+	public function testGetMatches()
+	{		
+		$matches = $this->downloader->getMatches();		
+		$this->assertGreaterThan(0, count($matches[0]));
 	}
 }
