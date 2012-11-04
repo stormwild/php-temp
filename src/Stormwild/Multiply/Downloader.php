@@ -55,4 +55,13 @@ class Downloader {
 		preg_match_all($this->pattern, $this->getPage(), $matches);
 		return $matches;
 	}
+	
+	/**
+	 * Before we can download the files we need to fix the url passed to curl.
+	 * There are two kinds of url:
+	 * '//multiply.com/mu/cdtrealestate/image/dpUPQaux4VpuBfs0osqmVw/photos/62/orig/1/A.VENUE-RESIDENCES-PENTHOUSE-28-B.JPG?et=h8l89aAisIdjy0PXR%2CiIZA&nmid=0&name=/541-A.VENUE RESIDENCES PENTHOUSE 28-B.JPG'
+	 * 'http://images.cdtrealestate.multiply.com/content/movie/cdtrealestate:video:2/cdtrealestate/2.avi/6L,oC,xvgmSRj4dzPtgJ0w/Antel%20Group%20Presentation.avi?nmid=&name=/32-Antel Group Presentation.avi'
+	 * 
+	 */
+	
 } 
