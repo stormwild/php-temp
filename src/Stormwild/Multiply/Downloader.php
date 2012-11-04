@@ -37,6 +37,12 @@ class Downloader {
 		return $data;
 	}
 	
+	/**
+	 * Downloads the Multiply Media Download page.
+	 * The page contains all the links to the media files uploaded by the user.
+	 * We need to get the page to be able to get all the links to the files to be downloaded. 
+	 * 
+	 */
 	public function getPage(){		
 		return $this->curl($this->url, $this->cookie);
 	}
