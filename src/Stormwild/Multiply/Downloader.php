@@ -134,6 +134,8 @@ class Downloader
         $fp = fopen(__DIR__ . '/downloads/' . $name, 'w');
         
         fwrite($fp, $file);
+        
+        fclose($fp);
     }
     
 
