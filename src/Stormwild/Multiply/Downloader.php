@@ -9,6 +9,7 @@ namespace Stormwild\Multiply;
  */
 class Downloader
 {
+    // @TODO refactor to not hard code stuff
     protected $pattern = "/<a href\='([^>]+)'>([^<]+)<\/a>/i";
 
     protected $content = "";

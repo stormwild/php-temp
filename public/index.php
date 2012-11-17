@@ -13,6 +13,8 @@ if($_POST) {
 
         $downloader = new Downloader();
 
+        // This may take a long time. We need to find some way to show a progress bar or something.
+        // To do that clicking submit should be an ajax call?
         $success = $download->run();
         
         // @TODO We should use try catch?
@@ -36,7 +38,8 @@ if($_POST) {
     </head>
     <body>
     <h1>Multiply Media Downloader</h1>
-    <form action="">
+    <p>If the download is successful you will be redirected to a success page. Otherwise an error message will be shown.</p>
+    <form method="post" action="">
         <input name="start" type="hidden" value="1">
         <input type="submit" value="Submit">
     </form>
