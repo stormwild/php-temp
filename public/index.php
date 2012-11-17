@@ -1,5 +1,7 @@
 <?php
 
+set_time_limit(36000); // 10 hours
+
 // @TODO use an autoloader 
 require_once(dirname(__DIR__) . '/src/Stormwild/Multiply/Downloader.php');
 
