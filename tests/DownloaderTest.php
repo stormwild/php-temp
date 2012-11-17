@@ -1,9 +1,14 @@
 <?php
 
-use Stormwild\Multiply\Downloader;
-
 require_once(dirname(__DIR__) . '/src/Stormwild/Multiply/Downloader.php');
 
+use Stormwild\Multiply\Downloader;
+
+/**
+ * This also serves as an integration test since it actually downloads the external url
+ * @author Torrijos
+ *
+ */
 class DownloaderTest extends PHPUnit_Framework_TestCase
 {
     protected $downloader;

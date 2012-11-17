@@ -23,7 +23,7 @@ class Downloader
 
     public function __construct()
     {
-        $this->length = strlen(MARKER);
+        $this->length = strlen($this::MARKER);
     }
 
     /**
@@ -47,20 +47,20 @@ class Downloader
     protected function getName($url)
     {        
         $pos = $this->getPos($url);        
-        $name = substr($url, $pos + $length);
+        $name = substr($url, $pos + $this->length);
         return $fixed = rawurlencode($name);
     }
     
     protected function getFileName($url)
     {
         $pos = $this->getPos($url);        
-        $name = substr($url, $pos + $length);        
+        $name = substr($url, $pos + $this->length);        
         return str_replace(' ', '_', $name);
     }
     
     protected function getPos($url)
     {
-        return strpos($url, MARKER);
+        return strpos($url, $this::MARKER);
     }
     
     /**

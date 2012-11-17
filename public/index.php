@@ -1,8 +1,11 @@
 <?php
 
+// @TODO use an autoloader 
+require_once(dirname(__DIR__) . '/src/Stormwild/Multiply/Downloader.php');
+
 use Stormwild\Multiply\Downloader;
 
-require_once(dirname(__DIR__) . '/src/Stormwild/Multiply/Downloader.php');
+
 
 $downloader = new Downloader();
 
@@ -15,6 +18,7 @@ $matches = $downloader->getMatches();
 //var_dump($matches);
 
 ?>
+
 <p><?php echo $url = $matches[1][0]; ?></p>
 
 <p><?php echo $pos = strpos($matches[1][0], '&name=/'); ?></p>
