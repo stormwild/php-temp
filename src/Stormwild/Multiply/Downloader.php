@@ -127,11 +127,11 @@ class Downloader
      */
     public function downloadFile($url)
     {
-        $file = curl($url);
+        $file = $this->curl($url);
         
-        $name = $this->getFileName($url);
+        $name = rawurldecode($this->getFileName($url));
         
-        $fp = fopen(__DIR__ . '/downloads/' . $name, 'w');
+        $fp = fopen(dirname(dirname(dirname(__DIR__))) . '/public/downloads/' . $name, 'w');
         
         fwrite($fp, $file);
         
