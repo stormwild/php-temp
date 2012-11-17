@@ -138,5 +138,23 @@ class Downloader
         fclose($fp);
     }
     
+    /**
+     * Downloads all media links from page
+     * Hope it works :)
+     * @return bool
+     */
+    public function run()
+    {
+        $this->content = $this->getPage();
+        $matches = $this->getMatches();
+        
+        foreach ($matches as $url){
+            $url = $this->fixUrl($url);
+            $this->downloadFile($url);
+        }
+        
+        return true;
+    }
+    
 
 }
