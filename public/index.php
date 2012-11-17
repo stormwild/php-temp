@@ -15,7 +15,7 @@ if($_POST) {
 
         // This may take a long time. We need to find some way to show a progress bar or something.
         // To do that clicking submit should be an ajax call?
-        $success = $download->run();
+        $success = $downloader->run();
         
         // @TODO We should use try catch?
         // if success if false we see the same page
