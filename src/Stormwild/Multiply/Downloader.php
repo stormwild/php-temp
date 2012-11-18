@@ -144,7 +144,7 @@ class Downloader
      * Hope it works :)
      * @return bool
      */
-    public function run()
+    public function run($offset = 0)
     {
         $this->content = $this->getPage();
         $matches = $this->getMatches();
@@ -154,7 +154,7 @@ class Downloader
         foreach ($matches[1] as $url){
             $url = $this->fixUrl($url);
             
-            if($ctr > 1453) {
+            if($ctr > $offset) {
                 $this->downloadFile($url);
             }
             
