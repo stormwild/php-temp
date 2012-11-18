@@ -149,9 +149,16 @@ class Downloader
         $this->content = $this->getPage();
         $matches = $this->getMatches();
         
+        $ctr = 1;
+        
         foreach ($matches[1] as $url){
             $url = $this->fixUrl($url);
-            $this->downloadFile($url);
+            
+            if($ctr > 1154) {
+                $this->downloadFile($url);
+            }
+            
+            $ctr++;
         }
         
         return true;

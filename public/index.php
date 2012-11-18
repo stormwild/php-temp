@@ -2,6 +2,8 @@
 
 set_time_limit(36000); // 10 hours
 
+ini_set('memory_limit', '-1');
+
 // @TODO use an autoloader 
 require_once(dirname(__DIR__) . '/src/Stormwild/Multiply/Downloader.php');
 
