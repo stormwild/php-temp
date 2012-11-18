@@ -141,7 +141,8 @@ class Downloader
     
     /**
      * Downloads all media links from page
-     * Hope it works :)
+     * It works :)
+     * In case there are errors, using an offset will allow you to continue from the count of the last file downloaded
      * @return bool
      */
     public function run($offset = 0)
