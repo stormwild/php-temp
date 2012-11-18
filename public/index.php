@@ -26,7 +26,8 @@ if($_POST) {
         // show an error message
         if($success) {            
             // redirect to success page
-            http_redirect("success.html");
+            //http_redirect("success.html"); // requires pecl extension
+            header('Location: success.html');
         } else {
             $error = "Something went wrong. We don't know what it is, check the downloads folder.";
         }
